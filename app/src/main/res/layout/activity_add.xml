@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddActivity">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+
 
         <EditText
             android:id="@+id/title"
@@ -20,14 +17,21 @@
             android:focusableInTouchMode="true"
             android:hint="商品名"
             android:singleLine="true"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="91dp" />
 
         <TextView
             android:id="@+id/textVIew2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="本文"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/add_button"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
 
         <EditText
             android:id="@+id/content"
@@ -35,16 +39,24 @@
             android:layout_height="64dp"
             android:layout_gravity="top"
             android:background="@android:color/transparent"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/add_button"
+            app:layout_constraintTop_toBottomOf="@+id/textVIew2"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="300dp"
             android:onClick="save"
             android:text="保存"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
 
-</RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -135,8 +135,7 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
         Intent intent = new Intent(ItemActivity.this, LoginActivity.class);
         intent.putExtra("check", true);
         startActivity(intent);
-
         finish();
-    
+
     }
 }
