@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //onCreate(画面が起動された時に最初に呼ばれるメソッド)内にFirebaseAuthオブジェクトの共有インスタンスを取得します。
+        super.onCreate(savedInstanceState);//親クラスのメソッドを呼び出す
+        setContentView(R.layout.activity_main);//activity_main.xmlの画面レイアウトを読み込む
 
         emailFormEditText = (EditText) findViewById(R.id.email_log_in_edit_text);
         passwordFormEditText = (EditText) findViewById(R.id.password_log_in_edit_text);
@@ -36,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean checkEmpty() {
         if (TextUtils.isEmpty(emailFormEditText.getText())) {
+            //Eメールが入力されていないときfalseを返す。
             Log.d("MainActivity", "何も記入されていません");
             return false;
         }
 
         if (TextUtils.isEmpty(passwordFormEditText.getText())) {
+            //パスワードが入力されていないときfalseを返す。
             Log.d("MainActivity", "何も記入されていません");
             return false;
         }
