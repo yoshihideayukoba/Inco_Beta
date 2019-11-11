@@ -27,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
+
         <TextView
             android:id="@+id/textVIew2"
             android:layout_width="0dp"
@@ -38,9 +39,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title"
-            app:layout_constraintVertical_bias="0.543"
+            app:layout_constraintVertical_bias="0.499"
             tools:ignore="MissingConstraints" />
-
 
         <Button
             android:id="@+id/dialogButton"
@@ -64,24 +64,23 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/add_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textVIew2"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.148"
             tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="16dp"
             android:onClick="save"
 
 
             android:text="保存"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.563"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
 
 
