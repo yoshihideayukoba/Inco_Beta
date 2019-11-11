@@ -42,6 +42,7 @@ public class AddActivity extends AppCompatActivity {
             }
         });
 
+        //
     }
     public void setTextView(String value){
         TextView textView = (TextView) findViewById(R.id.text);
