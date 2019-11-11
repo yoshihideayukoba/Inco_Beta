@@ -17,13 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity android:name=".ItemActivity"
-                    android:label="商品リスト">
-        </activity>
+                    android:label="商品リスト"/>
         <activity android:name=".AddActivity"
             android:label="商品追加"></activity>
-
 
     </application>
 

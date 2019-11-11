@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);//親クラスのメソッドを呼び出す
-        setContentView(R.layout.activity_login);//activity_login.xmlの画面レイアウトを読み込む
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
         SignInButton googleSignInButton = (SignInButton) findViewById(R.id.googleLoginButton);
         googleSignInButton.setSize(SignInButton.SIZE_STANDARD);
