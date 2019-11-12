@@ -112,8 +112,8 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
         uid = user.getUid();
 
         new AlertDialog.Builder(this)
-                .setTitle("Done?")
-                .setMessage("この項目を完了しましたか？")
+
+                .setMessage("この商品を削除しますか？")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -32,14 +32,15 @@
                 android:id="@+id/add_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="290dp"
+
+
                 android:layout_marginBottom="32dp"
                 android:clickable="true"
                 android:onClick="addButton"
-                app:backgroundTint="#4CAF50"
+                app:backgroundTint="#5EB23E"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.338"
+                app:layout_constraintHorizontal_bias="0.859"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
