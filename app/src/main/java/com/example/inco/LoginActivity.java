@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     public void loginEmail() {
-        Intent intent = new Intent(this, ItemActivity.class);
+        Intent intent = new Intent(this, ChatActivity.class);
         startActivity(intent);
     }
 

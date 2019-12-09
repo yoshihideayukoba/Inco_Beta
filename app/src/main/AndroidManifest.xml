@@ -21,6 +21,8 @@
                     android:label="商品リスト"/>
         <activity android:name=".AddActivity"
             android:label="商品追加"></activity>
+        <activity android:name=".ChatActivity"
+            android:label="チャット"></activity>
 
     </application>
 

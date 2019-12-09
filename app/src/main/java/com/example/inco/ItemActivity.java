@@ -5,12 +5,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -126,6 +137,39 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
                 .show();
 
         return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+//main.xmlの内容を読み込む
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bottom_nav_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_chat:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+
+            case R.id.action_list:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            case  R.id.navigation_notifications:
+                return true;
+
+            case R.id.logout:
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     public void logout(View v) {

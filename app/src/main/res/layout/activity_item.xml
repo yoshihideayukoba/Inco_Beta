@@ -1,51 +1,97 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ItemActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <ListView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="641dp"
-            android:divider="@null"
-            android:layout_weight="1">
-        </ListView>
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="logout"
-                android:text="ログアウト"
-                app:layout_constraintBaseline_toBaselineOf="@+id/add_button"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/add_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/gd">
 
 
-                android:layout_marginBottom="32dp"
-                android:clickable="true"
-                android:onClick="addButton"
-                app:backgroundTint="#5EB23E"
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="420dp"
+                android:layout_height="59dp"
+                android:background="?android:attr/windowBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.859"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/ic_add_black_24dp"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintVertical_bias="1.0"
+                app:menu="@menu/bottom_nav_menu">
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/text_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="739dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_alignBottom="@+id/list_view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="355dp"
+        android:layout_marginBottom="613dp"
+        android:clickable="true"
+        android:onClick="addButton"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="196dp"
+        tools:layout_editor_absoluteY="564dp" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="669dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="62dp"
+        android:divider="@null"></ListView>
+
+
 </RelativeLayout>

@@ -1,2 +1,2 @@
-include ':app'
+include ':app',':mylibrary', ':fancybuttons-1.9.1'
 rootProject.name='Inco'
