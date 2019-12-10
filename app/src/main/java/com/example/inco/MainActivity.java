@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeActivity() {
-        Intent intent = new Intent(this, ItemActivity.class);
+        Intent intent = new Intent(this, ChatActivity.class);
         startActivity(intent);
         finish();
     }
