@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:background="@drawable/gd">
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="メールアドレスでログインする"
-            android:textSize="20sp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,19 +25,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="メールアドレス" />
+                android:paddingTop="100dp"
+                android:gravity="center">
 
                 <EditText
                     android:id="@+id/email_log_in_edit_text"
-                    android:layout_width="fill_parent"
+                    android:layout_width="374dp"
                     android:layout_height="60dp"
+                    android:background="@drawable/round_corner"
+                    android:baselineAligned="false"
                     android:hint="メールアドレスを入力"
+                    android:padding="10dp"
                     android:singleLine="true"
                     android:textSize="20sp" />
 
@@ -45,49 +44,78 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:paddingBottom="70dp"
+                android:paddingTop="60dp"
 
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="パスワード" />
+                >
+
 
                 <EditText
                     android:id="@+id/password_log_in_edit_text"
-                    android:layout_width="fill_parent"
+                    android:layout_width="374dp"
                     android:layout_height="60dp"
+                    android:background="@drawable/round_corner"
                     android:hint="パスワードを入力"
                     android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:singleLine="true"
                     android:textSize="20sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="100dp"
+            tools:layout_editor_absoluteY="351dp">
 
-            <Button
+            <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/mailLoginButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
                 android:onClick="loginMailButton"
-                android:text="ログイン" />
+                android:text="ログイン"
+                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="#69E4FF"
+                fancy:fb_focusColor="#0067C7"
+                fancy:fb_iconPosition="left"
+                fancy:fb_radius="50dp"
+                fancy:fb_text="ログイン"
+                fancy:fb_textColor="#FFFFFF"
+                fancy:layout_constraintBottom_toBottomOf="@+id/newAccount"
+                fancy:layout_constraintEnd_toStartOf="@+id/newAccount"
+                fancy:layout_constraintStart_toStartOf="parent"
+                fancy:layout_constraintTop_toTopOf="@+id/newAccount"
+                fancy:layout_constraintVertical_bias="0.0" />
 
-            <Button
+            <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/newAccount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
                 android:onClick="addMailButton"
-                android:text="アカウントを登録する" />
+                android:text="アカウントを登録する"
+                fancy:fb_borderColor="#ffffff"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="#1487F8"
+                fancy:fb_focusColor="#0067C7"
+                fancy:fb_iconPosition="top"
+                fancy:fb_radius="50dp"
+                fancy:fb_text="新規登録"
+                fancy:fb_textColor="#FFFFFF"
+                fancy:layout_constraintBottom_toBottomOf="parent"
+                fancy:layout_constraintEnd_toEndOf="parent"
+                fancy:layout_constraintHorizontal_bias="0.5"
+                fancy:layout_constraintStart_toEndOf="@+id/mailLoginButton"
+                fancy:layout_constraintTop_toTopOf="parent"
+                fancy:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
 
     </LinearLayout>
 

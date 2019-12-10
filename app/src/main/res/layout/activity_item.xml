@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -76,8 +77,6 @@
 
         android:layout_alignBottom="@+id/list_view"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="355dp"
-        android:layout_marginBottom="613dp"
         android:clickable="true"
         android:onClick="addButton"
         app:srcCompat="@drawable/ic_add_black_24dp"
