@@ -1,2 +1,0 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file('fancybuttons-1.9.1.aar'))
