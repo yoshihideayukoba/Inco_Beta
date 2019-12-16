@@ -14,7 +14,7 @@
         android:title="リスト"
         android:icon="@drawable/ic_action_name"
         />
-    <item android:id="@+id/action_setting"
+    <item android:id="@+id/navigation_notifications"
         android:title="設定"
         android:icon="@drawable/ic_action_setting"/>
     <item

@@ -17,12 +17,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -34,7 +37,7 @@ import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class ItemActivity extends AppCompatActivity implements ListView.OnItemLongClickListener {
+public class ItemActivity extends AppCompatActivity implements ListView.OnItemLongClickListener, NavigationView.OnNavigationItemSelectedListener {
     public FirebaseUser user;
     public String uid;
 
@@ -68,6 +71,9 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
 
         //LongListenerを設定
         mListView.setOnItemLongClickListener(this);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         //firebaseと同期するリスナー
         reference.addChildEventListener(new ChildEventListener() {
@@ -162,9 +168,11 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
                 lntent.putExtra("check", true);
                 startActivity(lntent);
                 finish();
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
                 return true;
 
-            case  R.id.navigation_notifications:
+            case R.id.navigation_notifications:
                 return true;
 
             case R.id.action_logout:
@@ -175,6 +183,7 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
                 tntent.putExtra("check", true);
                 startActivity(tntent);
                 finish();
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -182,17 +191,43 @@ public class ItemActivity extends AppCompatActivity implements ListView.OnItemLo
                 return super.onOptionsItemSelected(item);
 
         }
-    }
-
-    public void action_logout(View v) {
-        mAuth = FirebaseAuth.getInstance();
-        mAuth.signOut();
-
-        Intent intent = new Intent(ItemActivity.this, LoginActivity.class);
-        intent.putExtra("check", true);
-        startActivity(intent);
-        finish();
-
 
     }
-}
+
+        public boolean onNavigationItemSelected(MenuItem item) {
+            // Handle navigation view item clicks here.
+            int id = item.getItemId();
+
+            if (id == R.id.action_list) {
+                Intent intent = new Intent(ItemActivity.this, ItemActivity.class);
+                intent.putExtra("check", true);
+                startActivity(intent);
+                finish();
+
+                // Handle the camera action
+            } else if (id == R.id.action_chat) {
+                Intent lntent = new Intent(ItemActivity.this, ChatActivity.class);
+                lntent.putExtra("check", true);
+                startActivity(lntent);
+                finish();
+
+            } else if (id == R.id.navigation_notifications) {
+
+
+            } else if (id == R.id.action_logout) {
+                mAuth = FirebaseAuth.getInstance();
+                mAuth.signOut();
+
+                Intent tntent = new Intent(ItemActivity.this, MainActivity.class);
+                tntent.putExtra("check", true);
+                startActivity(tntent);
+                finish();
+
+
+            }
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+        }
+    }

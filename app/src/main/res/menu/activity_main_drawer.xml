@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
-    <!-- "Mark Favorite", should appear as action button if possible -->
+
     <item
         android:id="@+id/action_chat"
         android:icon="@drawable/ic_action_chat"
@@ -14,7 +15,7 @@
         android:title="リスト"
         android:icon="@drawable/ic_action_name"
         />
-    <item android:id="@+id/action_setting"
+    <item android:id="@+id/navigation_notifications"
         android:title="設定"
         android:icon="@drawable/ic_action_setting"/>
     <item
@@ -23,8 +24,5 @@
         android:title="ログアウト"/>
 
 
+
 </menu>
-
-
-
-

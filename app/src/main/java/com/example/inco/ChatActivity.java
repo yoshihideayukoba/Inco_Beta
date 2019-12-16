@@ -8,6 +8,8 @@ import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import 	androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
@@ -38,7 +40,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -49,13 +51,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ChatActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
-
+public class ChatActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener {
 
     public static class MessageViewHolder extends RecyclerView.ViewHolder {
         TextView messageTextView;
@@ -70,10 +72,7 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
             messengerTextView = (TextView) itemView.findViewById(R.id.messengerTextView);
             messengerImageView = (CircleImageView) itemView.findViewById(R.id.messengerImageView);
         }
-
     }
-
-    public FirebaseAuth mAuth;
 
     private static final String TAG = "ChatActivity";
     public static final String MESSAGES_CHILD = "messages";
@@ -92,6 +91,7 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
     private Button mSendButton;
     private RecyclerView mMessageRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
+    public FirebaseAuth mAuth;
 
     private EditText mMessageEditText;
     private ImageView mAddMessageImageView;
@@ -113,6 +113,9 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         //ログイン情報を取得
         user = FirebaseAuth.getInstance().getCurrentUser();
         //user id = Uid を取得する
@@ -121,9 +124,6 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         // Set default username is anonymous.
         mUsername = "インコ";
-
-
-
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
@@ -157,6 +157,8 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
             public MessageViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
                 return new MessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false));
+
+
             }
 
             @Override
@@ -302,13 +304,14 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
         super.onDestroy();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+//main.xmlの内容を読み込む
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.bottom_nav_menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -325,9 +328,11 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
                 lntent.putExtra("check", true);
                 startActivity(lntent);
                 finish();
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
                 return true;
 
-            case R.id.navigation_notifications:
+            case  R.id.navigation_notifications:
                 return true;
 
             case R.id.action_logout:
@@ -338,6 +343,7 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
                 tntent.putExtra("check", true);
                 startActivity(tntent);
                 finish();
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -346,7 +352,6 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
 
         }
     }
-
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -422,4 +427,41 @@ public class ChatActivity extends AppCompatActivity implements GoogleApiClient.O
                 });
     }
 
+
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.action_list) {
+            Intent intent = new Intent(ChatActivity.this, ItemActivity.class);
+            intent.putExtra("check", true);
+            startActivity(intent);
+            finish();
+
+            // Handle the camera action
+        } else if (id == R.id.action_chat) {
+            Intent lntent = new Intent(ChatActivity.this, ChatActivity.class);
+            lntent.putExtra("check", true);
+            startActivity(lntent);
+            finish();
+
+        } else if (id == R.id.navigation_notifications) {
+
+
+        } else if (id == R.id.action_logout) {
+            mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
+
+            Intent tntent = new Intent(ChatActivity.this, MainActivity.class);
+            tntent.putExtra("check", true);
+            startActivity(tntent);
+            finish();
+
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

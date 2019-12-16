@@ -26,6 +26,4 @@
         android:name="com.example.inco.NotificationsFragment"
         android:label="notifications"
         tools:layout="@layout/fragment_notifications" />
-
-
 </navigation>

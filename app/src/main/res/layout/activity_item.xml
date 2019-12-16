@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,10 +18,19 @@
     tools:context=".ItemActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+
+
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,25 +43,11 @@
             android:layout_marginBottom="0dp"
             android:background="@drawable/gd">
 
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/nav_view"
-                android:layout_width="420dp"
-                android:layout_height="59dp"
-                android:background="?android:attr/windowBackground"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:menu="@menu/bottom_nav_menu">
-
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
@@ -88,9 +94,31 @@
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="669dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="62dp"
         android:divider="@null"></ListView>
 
 
+
+
+
+
 </RelativeLayout>
+    <com.rom4ek.arcnavigationview.ArcNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        app:itemBackground="@android:color/white"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer"
+        app:arc_cropDirection="cropOutside"
+        app:arc_width="96dp"/>
+</androidx.drawerlayout.widget.DrawerLayout>
+
+
+

@@ -41,7 +41,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation "com.firebaseui:firebase-ui-auth:4.2.1"
     implementation 'com.firebaseui:firebase-ui-database:4.2.0'
-
+    implementation 'com.rom4ek:arcnavigationview:1.0.3'
     testImplementation 'junit:junit:4.12'
 
     implementation 'com.google.android.material:material:1.0.0'
