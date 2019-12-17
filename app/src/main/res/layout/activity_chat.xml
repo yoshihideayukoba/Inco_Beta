@@ -21,7 +21,8 @@
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"/>
+        android:layout_above="@+id/linearLayout"
+        android:background="@drawable/gd"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -30,7 +31,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@android:color/white">
 
         <ImageView
             android:id="@+id/addMessageImageView"
@@ -63,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/white"
+        android:background="@drawable/gd"
         android:fitsSystemWindows="true"
         app:itemBackground="@android:color/white"
         app:headerLayout="@layout/nav_header_main"
